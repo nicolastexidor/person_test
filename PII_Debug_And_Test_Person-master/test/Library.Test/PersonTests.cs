@@ -6,12 +6,16 @@ namespace Tests
 {
     public class Tests
     {
-        [SetUp]
-        public void Setup()
-        {
-            // Insertá tu código de inicialización aquí
+        class PersonTest{
+
+        private Person person;
+
+       [SetUp]
+        public void SetUp(){
+              this.person= new Person("John Doe", "1.234.567-8");
         }
 
+}
         [Test]
         public void Test1() // Cambiá el nombre para indicar qué estás probando
         {
