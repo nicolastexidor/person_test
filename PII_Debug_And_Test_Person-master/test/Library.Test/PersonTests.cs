@@ -1,7 +1,7 @@
 using NUnit.Framework;
-
 using UnitTestAndDebug;
-
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Library.csproj;
 namespace Tests
 {
     public class Tests
@@ -12,55 +12,31 @@ namespace Tests
 
        [SetUp]
         public void SetUp(){
-              this.person= new Person("John Doe", "1.234.567-8");
+            NewPerson = new Person("Jane Doe", "8.765.432-1");
         }
 
 }
         [Test]
-        public void TestPerson() // Cambiá el nombre para indicar qué estás probando
+        public void NameTest()
         {
-        public class Person
-    {
-        public Person(string name, string id)
+            string result = NewPerson.Name;
+            Assert.AreEqual("Jane Doe", result);
+        }
+        [Test]
+        public void SetNameTest()
         {
-            this.Name = name;
-            this.ID = id;
+            NewPerson.Name = "Nicolas Texidor";
+            Assert.AreEqual("Nicolas Texidor", result);
         }
 
-        private string name;
-
-        private string id;
-
-        public string Name
+        [Test]
+        public void IdIsValidTest()
         {
-            get
-            {
-                return this.name;
-            }
-            
-            set
-            {
-                if (!string.IsNullOrEmpty(value))
-                {
-                    this.name = value;
-                }
-            }
+            bool result = IdIsValid(NewPerson.ID);
+            Assert.AreEqual(True, result);
         }
-        public string ID
-        {
-            get
-            {
-                return this.id;
-            }
 
-            set
-            {
-                if (IdUtils.IdIsValid(value))
-                {
-                    this.id = value;
-                }
-            }
-        }
     }
-        }
-    }
+}
+        
+
